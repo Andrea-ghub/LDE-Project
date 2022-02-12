@@ -331,7 +331,7 @@ def plot_info_network(G):
     
     
     
-def fitR0(x, y, start = 0, n_points = 6):
+def fitR0(x, y, start = 0, n_points = 6, log = True):
     xx = x
     yy = y
     xfit = xx[start:start+n_points]
@@ -352,6 +352,8 @@ def fitR0(x, y, start = 0, n_points = 6):
     
     # create a line plot for the mapping function
     plt.plot(x_line, y_line, '--', color='red')
+    if log:
+        plt.yscale("log")
     plt.show()
     
     print("G =", G)
