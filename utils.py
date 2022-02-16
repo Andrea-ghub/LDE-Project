@@ -331,7 +331,7 @@ def plot_info_network(G):
     
     
     
-def fitR0(x, y, start = 0, n_points = 6, log = True):
+def fitR0(x, y, start = 0, mu = 1/7, n_points = 6, log = True, info=True):
     xx = x
     yy = y
     xfit = xx[start:start+n_points]
@@ -345,17 +345,16 @@ def fitR0(x, y, start = 0, n_points = 6, log = True):
     
     I0, G = popt
     
-    x_line = np.linspace(xfit[0], xfit[-1], 20)
-    y_line = exp(x_line, I0, G)
+    if info:
+        # create a line plot for the mapping function
+        x_line = np.linspace(xfit[0], xfit[-1], 20)
+        y_line = exp(x_line, I0, G)
+        plt.scatter(xx, yy)
+        plt.plot(x_line, y_line, '--', color='red')
+        if log:
+            plt.yscale("log")
+        plt.show()
     
-    plt.scatter(xx, yy)
-    
-    # create a line plot for the mapping function
-    plt.plot(x_line, y_line, '--', color='red')
-    if log:
-        plt.yscale("log")
-    plt.show()
-    
-    print("G =", G)
-    print("\nR0 =", 7*G+1)
-    return 7*G+1
+        print("G =", G)
+        print("\nR0 =", G/mu+1)
+    return G/mu+1
