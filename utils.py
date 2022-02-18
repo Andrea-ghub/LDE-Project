@@ -178,7 +178,7 @@ def SIR_net_adaptive(G, NET, beta, mu, r, pro, pol, initial_infecteds, rewiring=
     
     
     ###################################
-    # How many people did change idea?
+    # How many people changed idea?
     lista = []
     a = np.zeros(N)
     lista.append(a)
