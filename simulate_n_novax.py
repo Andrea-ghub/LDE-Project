@@ -112,13 +112,13 @@ def simulate_params(r, pol, par, nv_init, rng, out_file):
     for t, i_mean, i_std, c1_mean, c2_mean, c1_std, c2_std in zip(times_stat, mean_I_stat, std_I_stat, mean_c1_stat, mean_c2_stat, std_c1_stat, std_c2_stat):
         out_file.write(f'{t},{round(i_mean, 2)},{nv_init},{round(c1_mean, 3)},{round(c2_mean, 3)},{int(mean_I_tot_stat)},{round(mean_V_tot_stat,3)},mean,static')
         out_file.write('\n')
-        out_file.write(f'{t},{round(i_std, 2)},{nv_init},{round(c1_std, 3)},{round(c2_std, 3)},{int(std_I_tot_stat)},{round(std_V_tot_stat,3)},mean,static')
+        out_file.write(f'{t},{round(i_std, 2)},{nv_init},{round(c1_std, 3)},{round(c2_std, 3)},{int(std_I_tot_stat)},{round(std_V_tot_stat,3)},std,static')
         out_file.write('\n')
 
     for t, i_mean, i_std, c1_mean, c2_mean, c1_std, c2_std in zip(times_dyn, mean_I_dyn, std_I_dyn, mean_c1_dyn, mean_c2_dyn, std_c1_dyn, std_c2_dyn):
-        out_file.write(f'{t},{round(i_mean, 2)},{nv_init},{round(c1_mean, 3)},{round(c2_mean, 3)},{int(mean_I_tot_dyn)},{round(mean_V_tot_dyn,3)},mean,static')
+        out_file.write(f'{t},{round(i_mean, 2)},{nv_init},{round(c1_mean, 3)},{round(c2_mean, 3)},{int(mean_I_tot_dyn)},{round(mean_V_tot_dyn,3)},mean,dynamic')
         out_file.write('\n')
-        out_file.write(f'{t},{round(i_std, 2)},{nv_init},{round(c1_std, 3)},{round(c2_std, 3)},{int(std_I_tot_dyn)},{round(std_V_tot_dyn,3)},mean,static')
+        out_file.write(f'{t},{round(i_std, 2)},{nv_init},{round(c1_std, 3)},{round(c2_std, 3)},{int(std_I_tot_dyn)},{round(std_V_tot_dyn,3)},std,dynamic')
         out_file.write('\n')
     print(f'completed: nv_init={nv_init}')
 
