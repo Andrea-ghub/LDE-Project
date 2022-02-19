@@ -349,10 +349,15 @@ def fitR0(x, y, start = 0, mu = 1/7, n_points = 6, log = True, info=True):
         # create a line plot for the mapping function
         x_line = np.linspace(xfit[0], xfit[-1], 20)
         y_line = exp(x_line, I0, G)
-        plt.scatter(xx, yy)
-        plt.plot(x_line, y_line, '--', color='red')
+        plt.figure(figsize=(8,6))
+        plt.scatter(xx, yy, c='navy', s=50, label='data')
+        plt.plot(x_line, y_line, '--', color='red', lw=2, label='exponential fit')
         if log:
             plt.yscale("log")
+        plt.xlabel('time', size=15)
+        plt.ylabel('prevalence', size=15)
+        plt.grid(True, alpha=0.5, which='both')
+        plt.legend(fontsize=12)
         plt.show()
     
         print("G =", G)
